@@ -1291,7 +1291,7 @@ char *homedir,*ptr;
 		fprintf(stderr,"home: Could not get your home directory.\n");
 		return;
 	}
-	sprintf(fname,"%s/.mosaic/spoof-agents",homedir); // SAM
+	sprintf(fname,"%s/spoof-agents",homedir); // SAM
 	free(homedir);
 
 	if (!(fp=fopen(fname,"r"))) {

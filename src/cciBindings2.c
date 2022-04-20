@@ -455,14 +455,14 @@ int retVal;
 	retVal = MCCIServerInitialize(portNumber);
 	if (retVal) {
 		  /* Write port number to .mosaiccciport */
-    		char *home = getenv ("HOME"), *fnam;
+    		char *home = getenv ("XDG_DATA_HOME"), *fnam;
     		FILE *fp;
 		
     		if (!home)
       			home = "/tmp";
 		
     		fnam = (char *)malloc (strlen (home) + 32);
-    		sprintf (fnam, "%s/.mosaic/cciport", home); // SAM
+    		sprintf (fnam, "%s/cciport", home); // SAM
 		
     		fp = fopen (fnam, "w");
     		if (fp) {

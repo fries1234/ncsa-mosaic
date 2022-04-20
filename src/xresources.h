@@ -131,16 +131,16 @@ static XtResource resources[] = {
 #endif /* not _AIX */
   { "globalHistoryFile", "GlobalHistoryFile", XtRString, 
       sizeof (char *),
-	offset (global_history_file), XtRString, ".mosaic/global-history" }, // SAM
+	offset (global_history_file), XtRString, "global-history" }, // SAM
   { "historyFile", "HistoryFile", XtRString, 
       sizeof (char *),
-	offset (history_file), XtRString, ".mosaic/x-history" }, // SAM
+	offset (history_file), XtRString, "x-history" }, // SAM
   { "defaultHotlistFile", "DefaultHotlistFile", XtRString, 
       sizeof (char *),
-	offset (default_hotlist_file), XtRString, ".mosaic/hotlist-default" }, // SAM
+	offset (default_hotlist_file), XtRString, "hotlist-default" }, // SAM
   { "defaultHotFile", "DefaultHotFile", XtRString, 
       sizeof (char *),
-	offset (default_hot_file), XtRString, ".mosaic/hot.html" }, // SAM
+	offset (default_hot_file), XtRString, "hot.html" }, // SAM
   { "addHotlistAddsRBM", "AddHotlistAddsRBM", XtRBoolean, sizeof (Boolean),
       offset (addHotlistAddsRBM), XtRString, "True" },
   { "addRBMAddsRBM", "AddRBMAddsRBM", XtRBoolean, sizeof (Boolean),
@@ -148,7 +148,7 @@ static XtResource resources[] = {
   { "personalAnnotationDirectory", "PersonalAnnotationDirectory", XtRString, 
       sizeof (char *),
       offset (private_annotation_directory), XtRString, 
-	".mosaic/personal-annotations" }, // SAM
+	"personal-annotations" }, // SAM
   /* Whether selections should be fancy, by default. */
   { "fancySelections", "FancySelections", XtRBoolean,
       sizeof (Boolean), offset (default_fancy_selections), 

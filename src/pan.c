@@ -77,7 +77,7 @@ extern int srcTrace;
 /*
   This file contains support for personal annotations (pans).
 
-  We have a directory called ~/.mosaic/personal-annotations (by default).
+  We have a directory called ~/personal-annotations (by default).
   In this directory is a file called LOG.
 
   The LOG file consists of the following:
@@ -450,7 +450,7 @@ mo_status mo_setup_pan_list (void)
 
   mo_init_pan ();
 
-  home = getenv ("HOME");
+  home = getenv ("XDG_DATA_HOME");
 
   /* This shouldn't happen. */
   if (!home)

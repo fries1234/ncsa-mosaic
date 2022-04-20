@@ -3991,7 +3991,7 @@ static int mo_error_handler (Display *dsp, XErrorEvent *event)
  * remarks: 
  *   
  ****************************************************************************/
-#define IMAGESELECT_FILENAME ".mosaic/imageselect-sites" // SAM
+#define IMAGESELECT_FILENAME "imageselect-sites" // SAM
 
 void setup_imagekill(void) {
 
@@ -4516,7 +4516,7 @@ splash_goto:
 
     if (get_pref_string(ePERSONAL_EXTENSION_MAP))
     {
-        char *home = getenv ("HOME");
+        char *home = getenv ("XDG_DATA_HOME");
       
         if (!home)
             home = "/tmp";
@@ -4535,7 +4535,7 @@ splash_goto:
     global_type_map = get_pref_string(eGLOBAL_TYPE_MAP);
     if (get_pref_string(ePERSONAL_TYPE_MAP))
     {
-        char *home = getenv ("HOME");
+        char *home = getenv ("XDG_DATA_HOME");
       
         if (!home)
             home = "/tmp";
@@ -4673,14 +4673,14 @@ splash_goto:
 
   /* Write pid into "~/.mosaicpid". */
   {
-    char *home = getenv ("HOME"), *fnam;
+    char *home = getenv ("XDG_DATA_HOME"), *fnam;
     FILE *fp;
     
         if (!home)
             home = "/tmp";
     
         fnam = (char *)malloc (strlen (home) + 32);
-        sprintf (fnam, "%s/.mosaic/mosaicpid", home); // SAM
+        sprintf (fnam, "%s/mosaicpid", home); // SAM
     
         fp = fopen (fnam, "w");
         if (fp)

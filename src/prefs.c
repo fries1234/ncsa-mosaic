@@ -71,7 +71,7 @@
 
 #define PREFS_FILE_IO 0
 
-#define PREFERENCES_FILENAME ".mosaic/preferences" // SAM
+#define PREFERENCES_FILENAME "preferences" // SAM
 #define PREFERENCES_MAJOR_VERSION 1
 #define PREFERENCES_MINOR_VERSION 0
 

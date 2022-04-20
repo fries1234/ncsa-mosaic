@@ -214,8 +214,8 @@ PopupItem *popup_build_user_defs()
       return NULL;
     }
 	
-  file = malloc(sizeof(char) * (strlen(str)+strlen("/.mosaic/user-defs")+1)); // SAM
-  sprintf(file, "%s/.mosaic/user-defs", str); // SAM
+  file = malloc(sizeof(char) * (strlen(str)+strlen("/user-defs")+1)); // SAM
+  sprintf(file, "%s/user-defs", str); // SAM
   
   free(str);
 

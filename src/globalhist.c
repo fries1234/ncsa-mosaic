@@ -506,7 +506,7 @@ mo_status mo_wipe_global_history (mo_window *win)
 static char *cached_global_hist_fname = NULL;
 mo_status mo_setup_global_history (void)
 {
-  char *home = getenv ("HOME");
+  char *home = getenv ("XDG_DATA_HOME");
   char *default_filename = get_pref_string(eGLOBAL_HISTORY_FILE);
   char *filename;
   FILE *fp;
@@ -530,7 +530,7 @@ mo_status mo_setup_global_history (void)
 	printf("  the resource 'Mosaic*urlExpired').\n\n");
 	printf("Your current history file will still exist and will not\n");
 	printf("  be modified. However, it will no longer be updated.\n");
-	printf("  Instead, the file '.mosaic/x-history' will be used.\n\n");
+	printf("  Instead, the file 'x-history' will be used.\n\n");
 
 	free(filename);
 	filename = (char *)malloc((strlen (home) + strlen (default_filename) + 8) * sizeof (char));

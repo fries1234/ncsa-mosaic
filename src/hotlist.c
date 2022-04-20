@@ -1180,7 +1180,7 @@ static mo_root_hotlist *mo_read_hotlist (char *filename, char *home)
       list = mo_new_root_hotlist(hotname, NULL);
       list->name = mo_read_new_hotlist((mo_hotlist *)list, fp);
       if (isnew==1) {
-	fprintf(stderr,"Your hotlist has been updated to a new format!\n  It is now called '.mosaic/hot.html'.\n");
+	fprintf(stderr,"Your hotlist has been updated to a new format!\n  It is now called 'hot.html'.\n");
       }
       goto done;
     }
@@ -1295,7 +1295,7 @@ mo_status mo_dump_hotlist (mo_hotlist *list)
  */
 mo_status mo_setup_default_hotlist (void)
 {
-  char *home = getenv ("HOME");
+  char *home = getenv ("XDG_DATA_HOME");
   char *default_filename = get_pref_string(eDEFAULT_HOTLIST_FILE);
   char *hot_filename = get_pref_string(eDEFAULT_HOT_FILE);
   char *filename;
@@ -1321,6 +1321,7 @@ mo_status mo_setup_default_hotlist (void)
       filename = (char *)malloc 
 	((strlen (home) + strlen (hot_filename) + 8) * sizeof (char));
       sprintf (filename, "%s/%s", home, hot_filename);
+      fprintf(stderr, "%s\n", filename);
       default_hotlist = mo_new_root_hotlist (filename, "Default");
     }
   
