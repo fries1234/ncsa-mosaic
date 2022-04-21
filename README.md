@@ -1,7 +1,7 @@
 NCSA Mosaic
 ===========
 
-![Wikipedia viewed with Mosaic](https://github.com/downloads/yotann/ncsa-mosaic/wikipedia-screenshot.png "Wikipedia viewed with Mosaic")
+![The first Web Page](mosaic.png "The first Web Page")
 
 This is [NCSA Mosaic](https://en.wikipedia.org/wiki/Mosaic_(web_browser)), one
 of the first graphical web browsers. This version has barely been modified
@@ -25,19 +25,29 @@ it so that in-document javascript is not displayed.
 Building
 --------
 
-On Arch Linux, use the [AUR
-package](https://aur.archlinux.org/packages/ncsa-mosaic-git/).
+On Arch Linux:
+* First, install these packages:
+      sudo pacman -S openmotif base-devel libjpeg6-turbo libpng 
+      libxmu libxpm x11proto meson ninja --needed
+
+* Next, build with:
+      meson build
+      ninja -C build
+
+* Run!
+      build/src/Mosaic
 
 On Ubuntu:
 
 * First, install these packages:
 
-      sudo apt-get install build-essential libmotif-dev libjpeg62-dev libpng12-dev x11proto-print-dev libxmu-headers libxpm-dev libxmu-dev
+      sudo apt-get install build-essential libmotif-dev libjpeg62-dev libpng12-dev x11proto-print-dev libxmu-headers libxpm-dev libxmu-dev meson ninja-build
 
 * Next, build with:
 
-      make linux
+      meson build
+      ninja -C build
 
 * Run!
 
-      src/Mosaic
+      build/src/Mosaic
