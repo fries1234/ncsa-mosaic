@@ -67,10 +67,10 @@ install_data(
         'com.github.fries1234.ncsa-mosaic.png'
     ],
     rename: [
-        'symbolic/com.github.fries1234.ncsa-mosaic-symbolic.svg',
-        '128x128/com.github.fries1234.ncsa-mosaic.png',
-        '64x64/com.github.fries1234.ncsa-mosaic.png',
-        '256x256/com.github.fries1234.ncsa-mosaic.png',
+        'symbolic/apps/com.github.fries1234.ncsa-mosaic-symbolic.svg',
+        '128x128/apps/com.github.fries1234.ncsa-mosaic.png',
+        '64x64/apps/com.github.fries1234.ncsa-mosaic.png',
+        '256x256/apps/com.github.fries1234.ncsa-mosaic.png',
 
     ],
     install_dir: 'share/icons/hicolor'
