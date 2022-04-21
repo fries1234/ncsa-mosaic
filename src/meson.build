@@ -51,7 +51,9 @@ exe = executable('Mosaic', sources, dependencies: [
     Xmx,
     htmlw,
     nut,
-    openmotif
+    openmotif,
+    libpng,
+    libjpeg
 ],
     install: true
 )

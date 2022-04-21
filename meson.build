@@ -8,6 +8,8 @@ cc = meson.get_compiler('c')
 
 openmotif = cc.find_library('Xm', required: true)
 xmu = dependency('xmu')
+libpng = dependency('libpng')
+libjpeg = dependency('libjpeg')
 
 include_dir = include_directories('.')
 
