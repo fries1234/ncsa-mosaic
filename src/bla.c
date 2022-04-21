@@ -62,11 +62,11 @@
 #include "list.h"
 #include "memStuffForPipSqueeks.h"
 
-#include "HTPlain.h"
-#include "HTUtils.h"
-#include "HText.h"
-#include "HTFile.h"
-#include "HTCompressed.h"
+#include "libwww2/HTPlain.h"
+#include "libwww2/HTUtils.h"
+#include "libwww2/HText.h"
+#include "libwww2/HTFile.h"
+#include "libwww2/HTCompressed.h"
 
 extern void MoCCISendOutputToClient();
 extern void HTCompressedFileToFile (char *fnam, int compressed);

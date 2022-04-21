@@ -51,7 +51,7 @@
  * Comments and questions are welcome and can be sent to                    *
  * mosaic-x@ncsa.uiuc.edu.                                                  *
  ****************************************************************************/
-#include "../config.h"
+#include "config.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include "HTMLP.h"
@@ -290,31 +290,31 @@ static XtResource resources[] =
 	{	WbNmarginWidth,
 		WbCMarginWidth, XtRDimension, sizeof (Dimension),
 		XtOffset (HTMLWidget, html.margin_width),
-		XtRImmediate, (caddr_t) MARGIN_DEFAULT
+		XtRImmediate, (void *) MARGIN_DEFAULT
 	},
 
 	{	WbNmarginHeight,
 		WbCMarginHeight, XtRDimension, sizeof (Dimension),
 		XtOffset (HTMLWidget, html.margin_height),
-		XtRImmediate, (caddr_t) MARGIN_DEFAULT
+		XtRImmediate, (void *) MARGIN_DEFAULT
 	},
 
 	{	WbNanchorCallback,
 		XtCCallback, XtRCallback, sizeof (XtCallbackList),
 		XtOffset (HTMLWidget, html.anchor_callback),
-		XtRImmediate, (caddr_t) NULL
+		XtRImmediate, (void *) NULL
 	},
 
 	{	WbNlinkCallback,
 		XtCCallback, XtRCallback, sizeof (XtCallbackList),
 		XtOffset (HTMLWidget, html.link_callback),
-		XtRImmediate, (caddr_t) NULL
+		XtRImmediate, (void *) NULL
 	},
 
 	{	WbNsubmitFormCallback,
 		XtCCallback, XtRCallback, sizeof (XtCallbackList),
 		XtOffset (HTMLWidget, html.form_callback),
-		XtRImmediate, (caddr_t) NULL
+		XtRImmediate, (void *) NULL
 	},
 
 	{	WbNtext,
@@ -597,21 +597,21 @@ static XtResource resources[] =
                 WbCPreviouslyVisitedTestFunction, XtRPointer, 
                 sizeof (XtPointer),
                 XtOffset (HTMLWidget, html.previously_visited_test),
-                XtRImmediate, (caddr_t) NULL
+                XtRImmediate, (void *) NULL
         },
                   
         {       WbNresolveImageFunction,
                 WbCResolveImageFunction, XtRPointer, 
                 sizeof (XtPointer),
                 XtOffset (HTMLWidget, html.resolveImage),
-                XtRImmediate, (caddr_t) NULL
+                XtRImmediate, (void *) NULL
         },
                   
         {       WbNresolveDelayedImage,
                 WbCResolveDelayedImage, XtRPointer, 
                 sizeof (XtPointer),
                 XtOffset (HTMLWidget, html.resolveDelayedImage),
-                XtRImmediate, (caddr_t) NULL
+                XtRImmediate, (void *) NULL
         },
 
         {
@@ -619,7 +619,7 @@ static XtResource resources[] =
                 WbCPointerMotionCallback, XtRPointer, 
                 sizeof (XtPointer),
                 XtOffset (HTMLWidget, html.pointer_motion_callback),
-                XtRImmediate, (caddr_t) NULL
+                XtRImmediate, (void *) NULL
         },
                     
 };
@@ -958,7 +958,7 @@ XGCValues values;
 static void
 DrawExpose(w, data, event)
 	Widget w;
-	caddr_t data;
+	void * data;
 	XEvent *event;
 {
 
@@ -1466,8 +1466,8 @@ ScrollToPos(w, hw, value)
 void
 ScrollMove(w, client_data, call_data)
 	Widget w;
-	caddr_t client_data;
-	caddr_t call_data;
+	void * client_data;
+	void * call_data;
 {
 #ifdef MOTIF
 	XmScrollBarCallbackStruct *sc = (XmScrollBarCallbackStruct *)call_data;
@@ -1505,8 +1505,8 @@ ScrollMove(w, client_data, call_data)
 void
 JumpMove(w, client_data, call_data)
 	Widget w;
-	caddr_t client_data;
-	caddr_t call_data;
+	void * client_data;
+	void * call_data;
 {
 	HTMLWidget hw = (HTMLWidget)client_data;
 	int value = (int)(*(float *)call_data * 
@@ -1561,7 +1561,7 @@ CreateScrollbars(
 	 */
 	XtAddEventHandler((Widget)hw->html.view,
 			  ExposureMask|VisibilityChangeMask, True,
-			  (XtEventHandler)DrawExpose, (caddr_t)hw);
+			  (XtEventHandler)DrawExpose, (void *)hw);
 	hw->html.obscured=0;
 
 	/*
@@ -1600,16 +1600,16 @@ CreateScrollbars(
 	 */
 #ifdef MOTIF
 	XtAddCallback(hw->html.vbar, XmNvalueChangedCallback,
-		(XtCallbackProc)ScrollMove, (caddr_t)hw);
+		(XtCallbackProc)ScrollMove, (void *)hw);
 
 	XtAddCallback(hw->html.vbar, XmNdragCallback,
-		(XtCallbackProc)ScrollMove, (caddr_t)hw);
+		(XtCallbackProc)ScrollMove, (void *)hw);
 
 #else
 	XtAddCallback(hw->html.vbar, XtNjumpProc,
-		(XtCallbackProc)JumpMove, (caddr_t)hw);
+		(XtCallbackProc)JumpMove, (void *)hw);
 	XtAddCallback(hw->html.vbar, XtNscrollProc,
-		(XtCallbackProc)ScrollMove, (caddr_t)hw);
+		(XtCallbackProc)ScrollMove, (void *)hw);
 #endif
 
 	/*
@@ -1637,14 +1637,14 @@ CreateScrollbars(
 	 */
 #ifdef MOTIF
 	XtAddCallback(hw->html.hbar, XmNvalueChangedCallback,
-		(XtCallbackProc)ScrollMove, (caddr_t)hw);
+		(XtCallbackProc)ScrollMove, (void *)hw);
 	XtAddCallback(hw->html.hbar, XmNdragCallback,
-		(XtCallbackProc)ScrollMove, (caddr_t)hw);
+		(XtCallbackProc)ScrollMove, (void *)hw);
 #else
 	XtAddCallback(hw->html.hbar, XtNjumpProc,
-		(XtCallbackProc)JumpMove, (caddr_t)hw);
+		(XtCallbackProc)JumpMove, (void *)hw);
 	XtAddCallback(hw->html.hbar, XtNscrollProc,
-		(XtCallbackProc)ScrollMove, (caddr_t)hw);
+		(XtCallbackProc)ScrollMove, (void *)hw);
 #endif
 }
 
@@ -4744,7 +4744,7 @@ static Boolean
 ConvertSelection(w, selection, target, type, value, length, format)
 	Widget w;
 	Atom *selection, *target, *type;
-	caddr_t *value;
+	void * *value;
 	unsigned long *length;
 	int *format;
 {
@@ -4763,11 +4763,11 @@ ConvertSelection(w, selection, target, type, value, length, format)
 		Atom *std_targets;
 		unsigned long std_length;
 		XmuConvertStandardSelection( w, hw->html.selection_time,
-			selection, target, type, (caddr_t*)&std_targets,
+			selection, target, type, (void **)&std_targets,
 			&std_length, format);
 
 		*length = std_length + 5;
-		*value = (caddr_t)XtMalloc(sizeof(Atom)*(*length));
+		*value = (void *)XtMalloc(sizeof(Atom)*(*length));
 		targetP = *(Atom**)value;
 		*targetP++ = XA_STRING;
 		*targetP++ = XA_TEXT(d);

@@ -58,7 +58,7 @@ extern int srcTrace;
 
 #include "mfhdf.h"
 #include "mosaic.h"
-#include "libhtmlw/HTML.h" /* for ImageInfo */
+#include "HTML.h" /* for ImageInfo */
 #ifdef HAVE_DTM
 #include "netdata.h"
 #endif

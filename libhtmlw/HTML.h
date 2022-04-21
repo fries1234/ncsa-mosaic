@@ -52,6 +52,8 @@
  * mosaic-x@ncsa.uiuc.edu.                                                  *
  ****************************************************************************/
 
+#include "config.h"
+
 #ifndef HTML_H
 #define HTML_H
 

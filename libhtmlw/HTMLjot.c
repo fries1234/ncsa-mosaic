@@ -51,7 +51,7 @@
  * Comments and questions are welcome and can be sent to                    *
  * mosaic-x@ncsa.uiuc.edu.                                                  *
  ****************************************************************************/
-#include "../config.h"
+#include "config.h"
 #ifdef MOTIF
 
 /*
@@ -82,9 +82,9 @@
 #endif /* DEC C V5.2 socket.h conflicts with SOCKETSHR types.h, GEC */
 #include <socket.h>
 #ifdef __SOCKET_TYPEDEFS
-#define CADDR_T
-#define __CADDR_T
-#endif /* Different CADDR_T defs in VMS include files, BSN OK for OVMS 1.5? */
+#define void *
+#define __void *
+#endif /* Different void * defs in VMS include files, BSN OK for OVMS 1.5? */
 #include <in.h>
 #include <netdb.h>
 #ifdef SOCKETSHR /* BGT */
@@ -108,7 +108,7 @@
 #endif /* MULTINET - UCX, BSN */
 #endif /* VMS, BSN */
 
-#ifdef VMS  /* moved here to preclude warning message about caddr_t */
+#ifdef VMS  /* moved here to preclude warning message about void * */
 #ifdef __DECC
 #define _POSIX_C_SOURCE
 #endif /* DEC C, GEC */

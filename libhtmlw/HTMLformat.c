@@ -51,7 +51,7 @@
  * Comments and questions are welcome and can be sent to                    *
  * mosaic-x@ncsa.uiuc.edu.                                                  *
  ****************************************************************************/
-#include "../config.h"
+#include "config.h"
 #ifndef VMS
 #include <sys/time.h>
 struct timeval Tv;

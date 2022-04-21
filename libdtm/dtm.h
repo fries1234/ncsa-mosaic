@@ -309,10 +309,10 @@ extern int	DTMgetConnectionCount DTM_PROTO(( int port, int * n_connects ));
 typedef	(*DTMfuncPtr)();
 #ifdef _XtIntrinsic_h
 extern	int	DTMaddInput DTM_PROTO(( int port, long condition,
-					XtInputCallbackProc proc, caddr_t client_data));
+					XtInputCallbackProc proc, void * client_data));
 #else
 extern	int	DTMaddInput DTM_PROTO(( int port, long condition,
-							DTMfuncPtr proc, caddr_t client_data));
+							DTMfuncPtr proc, void * client_data));
 #endif
 
 extern DTMerr	DTMerrno;

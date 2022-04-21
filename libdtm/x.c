@@ -67,10 +67,10 @@
 #endif
 
 #ifdef DTM_PROTOTYPES
-void dtm_handle_new_in( caddr_t client_data, int * fd, XtInputId * id)
+void dtm_handle_new_in( void * client_data, int * fd, XtInputId * id)
 #else
 void dtm_handle_new_in( client_data, fd, id )
-	caddr_t		client_data;
+	void *		client_data;
 	int *		fd;
 	XtInputId *	id;
 #endif
@@ -82,10 +82,10 @@ void dtm_handle_new_in( client_data, fd, id )
 }
 
 #ifdef DTM_PROTOTYPES
-void dtm_handle_new_out( caddr_t client_data, int * fd, XtInputId * id)
+void dtm_handle_new_out( void * client_data, int * fd, XtInputId * id)
 #else
 void dtm_handle_new_out( client_data, fd, id )
-	caddr_t		client_data;
+	void *		client_data;
 	int *		fd;
 	XtInputId *	id;
 #endif
@@ -121,14 +121,14 @@ void dtm_handle_new_out( client_data, fd, id )
 		automatically handled.
 */
 #ifdef DTM_PROTOTYPES
-int DTMaddInput( int p_ext, caddr_t condition, 
-					XtInputCallbackProc proc, caddr_t client_data )
+int DTMaddInput( int p_ext, void * condition, 
+					XtInputCallbackProc proc, void * client_data )
 #else
 int	DTMaddInput( p_ext, condition, proc, client_data )
 	int					p_ext;
-	caddr_t 			condition; 
+	void * 			condition; 
 	XtInputCallbackProc	proc;
-	caddr_t				client_data;
+	void *				client_data;
 #endif
 {
 	reg DTMPORT *pp;
@@ -149,14 +149,14 @@ int	DTMaddInput( p_ext, condition, proc, client_data )
 			Set up callback for new connections
 		*/
 		XtAddInput( pp->sockfd, XtInputReadMask, dtm_handle_new_in, 
-				(caddr_t) p );
+				(void *) p );
 		FOR_EACH_IN_PORT( inp, pp ) {
 			inp->XinputId = XtAddInput( inp->fd, XtInputReadMask, 
-					dtm_handle_in, (caddr_t) p );
+					dtm_handle_in, (void *) p );
 		}
 	} else {
 		XtAddInput( pp->sockfd, XtInputReadMask, dtm_handle_new_out, 
-				(caddr_t) p );
+				(void *) p );
 	}
 	return DTM_OK;
 }

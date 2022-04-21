@@ -665,7 +665,7 @@ int	dtm_writev_buffer( fd, iov, iovlen, iovsize, addr, addrlen )
 
   	DBGINT("# dtm_writev_buffer called, fd %d.\n", fd );
 	
-	msgbuf.msg_name = (caddr_t)addr ; 
+	msgbuf.msg_name = (void *)addr ; 
 	msgbuf.msg_namelen = addrlen ;
 	msgbuf.msg_iov = iov ;
 	msgbuf.msg_iovlen = iovlen ;

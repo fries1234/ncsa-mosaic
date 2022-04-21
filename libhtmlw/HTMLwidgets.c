@@ -51,7 +51,7 @@
  * Comments and questions are welcome and can be sent to                    *
  * mosaic-x@ncsa.uiuc.edu.                                                  *
  ****************************************************************************/
-#include "../config.h"
+#include "config.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -179,8 +179,8 @@ setTextSize(w, columns, lines)
 void
 CBListDestroy(w, client_data, call_data)
 	Widget w;
-	caddr_t client_data;
-	caddr_t call_data;
+	void * client_data;
+	void * call_data;
 {
 	char **string_list=NULL, **p;
 	int item_count;
@@ -203,8 +203,8 @@ CBListDestroy(w, client_data, call_data)
 void
 CBTextDestroy(w, client_data, call_data)
 	Widget w;
-	caddr_t client_data;
-	caddr_t call_data;
+	void * client_data;
+	void * call_data;
 {
 	char *txt = (char *)client_data;
 	free(txt);
@@ -214,8 +214,8 @@ CBTextDestroy(w, client_data, call_data)
 void
 CBoption(w, client_data, call_data)
 	Widget w;
-	caddr_t client_data;
-	caddr_t call_data;
+	void * client_data;
+	void * call_data;
 {
 	Widget menuButton = (Widget)client_data;
 	char *label;
@@ -662,8 +662,8 @@ ImageSubmitForm(fptr, event, name, x, y)
 void
 CBSubmitForm(w, client_data, call_data)
 	Widget w;
-	caddr_t client_data;
-	caddr_t call_data;
+	void * client_data;
+	void * call_data;
 {
 	FormInfo *fptr = (FormInfo *)client_data;
 	HTMLWidget hw = (HTMLWidget)(fptr->hw);
@@ -701,8 +701,8 @@ CBSubmitForm(w, client_data, call_data)
 void
 CBChangeRadio(w, client_data, call_data)
 	Widget w;
-	caddr_t client_data;
-	caddr_t call_data;
+	void * client_data;
+	void * call_data;
 {
 	FormInfo *fptr = (FormInfo *)client_data;
 	HTMLWidget hw = (HTMLWidget)(fptr->hw);
@@ -850,8 +850,8 @@ CBChangeRadio(w, client_data, call_data)
 void
 CBPasswordModify(w, client_data, call_data)
 	Widget w;
-	caddr_t client_data;
-	caddr_t call_data;
+	void * client_data;
+	void * call_data;
 {
 	FormInfo *fptr = (FormInfo *)client_data;
 	XmTextVerifyCallbackStruct *tv =(XmTextVerifyCallbackStruct *)call_data;
@@ -1039,8 +1039,8 @@ CBPasswordModify(w, client_data, call_data)
 void
 CBActivateField(w, client_data, call_data)
 	Widget w;
-	caddr_t client_data;
-	caddr_t call_data;
+	void * client_data;
+	void * call_data;
 {
 	FormInfo *fptr = (FormInfo *)client_data;
 	HTMLWidget hw = (HTMLWidget)(fptr->hw);
@@ -1116,8 +1116,8 @@ CBActivateField(w, client_data, call_data)
 void
 CBResetForm(w, client_data, call_data)
 	Widget w;
-	caddr_t client_data;
-	caddr_t call_data;
+	void * client_data;
+	void * call_data;
 {
 	FormInfo *fptr = (FormInfo *)client_data;
 	HTMLWidget hw = (HTMLWidget)(fptr->hw);
@@ -1480,10 +1480,10 @@ PrepareFormEnd(hw, w, fptr)
 {
 #ifdef MOTIF
 	XtAddCallback(w, XmNactivateCallback, 
-                      (XtCallbackProc)CBSubmitForm, (caddr_t)fptr);
+                      (XtCallbackProc)CBSubmitForm, (void *)fptr);
 #else
 	XtAddCallback(w, XtNcallback,
-		      (XtCallbackProc)CBSubmitForm, (caddr_t)fptr);
+		      (XtCallbackProc)CBSubmitForm, (void *)fptr);
 #endif /* MOTIF */
 }
 
@@ -1496,10 +1496,10 @@ PrepareFormReset(hw, w, fptr)
 {
 #ifdef MOTIF
 	XtAddCallback(w, XmNactivateCallback, 
-                      (XtCallbackProc)CBResetForm, (caddr_t)fptr);
+                      (XtCallbackProc)CBResetForm, (void *)fptr);
 #else
 	XtAddCallback(w, XtNcallback,
-		     (XtCallbackProc)CBResetForm, (caddr_t)fptr);
+		     (XtCallbackProc)CBResetForm, (void *)fptr);
 #endif /* MOTIF */
 }
 
@@ -2331,7 +2331,7 @@ MakeWidget(hw, text, x, y, id, fptr)
 			XtSetMappedWhenManaged(w, False);
 			XtManageChild(w);
 			XtAddCallback(w, XmNvalueChangedCallback,
-				(XtCallbackProc)CBChangeRadio, (caddr_t)fptr);
+				(XtCallbackProc)CBChangeRadio, (void *)fptr);
 
 			XmStringFree(label);
 		}
@@ -2922,9 +2922,9 @@ MakeWidget(hw, text, x, y, id, fptr)
 			XtSetMappedWhenManaged(w, False);
 #endif /* MOTIF1_2 */
 			XtAddCallback(w, XmNactivateCallback,
-				(XtCallbackProc)CBActivateField, (caddr_t)fptr);
+				(XtCallbackProc)CBActivateField, (void *)fptr);
 			XtAddCallback(w, XmNmodifyVerifyCallback,
-				(XtCallbackProc)CBPasswordModify, (caddr_t)fptr);
+				(XtCallbackProc)CBPasswordModify, (void *)fptr);
 		}
 		else if ((type_str != NULL)&&(my_strcasecmp(type_str, "textarea") ==0))
 		{
@@ -3185,7 +3185,7 @@ MakeWidget(hw, text, x, y, id, fptr)
 			if (type == W_TEXTFIELD)
 			{
 				XtAddCallback(w, XmNactivateCallback,
-					(XtCallbackProc)CBActivateField, (caddr_t)fptr);
+					(XtCallbackProc)CBActivateField, (void *)fptr);
 			}
 		}
 
@@ -3388,7 +3388,7 @@ MakeWidget(hw, text, x, y, id, fptr)
 			XtSetMappedWhenManaged(w, False);
 			XtManageChild(w);
 			XtAddCallback(w, XtNcallback,
-				(XtCallbackProc)CBChangeRadio, (caddr_t)fptr);
+				(XtCallbackProc)CBChangeRadio, (void *)fptr);
 		}
 		else if ((type_str != NULL)&&(my_strcasecmp(type_str, "submit") == 0))
 		{
@@ -3823,7 +3823,7 @@ MakeWidget(hw, text, x, y, id, fptr)
 			{
 				XtAddCallback(w, XtNdestroyCallback,
 					(XtCallbackProc)CBTextDestroy,
-					(caddr_t)txt);
+					(void *)txt);
 			}
 
 			XtOverrideTranslations(w,
@@ -4023,7 +4023,7 @@ MakeWidget(hw, text, x, y, id, fptr)
 				if (maxlength > 0)
 				{
 					XtAddCallback(w, XtNdestroyCallback,
-						CBTextDestroy, (caddr_t)txt);
+						CBTextDestroy, (void *)txt);
 				}
 
 				XtOverrideTranslations(w,

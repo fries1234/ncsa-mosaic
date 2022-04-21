@@ -38,4 +38,4 @@ typedef struct {
 	} Exec;
 /****************************/
 
-static void	NetFreeDataCB PARAMS((GenericPtr data, caddr_t cbData));
+static void	NetFreeDataCB PARAMS((GenericPtr data, void * cbData));

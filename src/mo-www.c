@@ -96,16 +96,16 @@ char *saveFileName=NULL;
 #endif
 
 /* libwww includes */
-#include "HTUtils.h"
-#include "HTString.h"
-#include "tcp.h"
-#include "HTTCP.h"
-#include "HTParse.h"
-#include "HTAccess.h"
-#include "HTML.h"
-#include "HText.h"
-#include "HTList.h"
-#include "HTInit.h"
+#include "libwww2/HTUtils.h"
+#include "libwww2/HTString.h"
+#include "libwww2/tcp.h"
+#include "libwww2/HTTCP.h"
+#include "libwww2/HTParse.h"
+#include "libwww2/HTAccess.h"
+#include "libwww2/HTML.h"
+#include "libwww2/HText.h"
+#include "libwww2/HTList.h"
+#include "libwww2/HTInit.h"
 #include "libnut/system.h"
 #include "libhtmlw/HTML.h"
 

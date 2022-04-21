@@ -58,7 +58,7 @@
  *		* printing of tables and forms fields (and any new features that appear)
  *
  */
-#include "../config.h"
+#include "config.h"
 #include <stdarg.h>
 
 #include <string.h>

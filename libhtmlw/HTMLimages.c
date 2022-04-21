@@ -51,14 +51,14 @@
  * Comments and questions are welcome and can be sent to                    *
  * mosaic-x@ncsa.uiuc.edu.                                                  *
  ****************************************************************************/
-#include "../config.h"
+#include "config.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include "HTMLP.h"
-#include "NoImage.xbm"
-#include "DelayedImage.xbm"
-#include "AnchoredImage.xbm"
+#include "NoImage.c"
+#include "DelayedImage.c"
+#include "AnchoredImage.c"
 
 /* SWP -- Now use eptr->bwidth -- 02/08/96
 #define IMAGE_BORDER	2 */

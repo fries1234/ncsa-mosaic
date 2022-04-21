@@ -463,10 +463,10 @@ extern char * 	dtm_find_tag		DTM_PROTO(( char *, char *));
 extern int		dtm_accept_read_connections DTM_PROTO(( DTMPORT *pp,int fWait ));
 extern void		dtm_set_Xcallback	DTM_PROTO(( DTMPORT *pp, Inport * inp ));
 #ifdef _XtIntrinsic_h
-extern void		dtm_handle_in		DTM_PROTO(( caddr_t client_data,  
+extern void		dtm_handle_in		DTM_PROTO(( void * client_data,  
 										int * fd, XtInputId * in ));
 #else
-extern void		dtm_handle_in		DTM_PROTO(( caddr_t client_data,  
+extern void		dtm_handle_in		DTM_PROTO(( void * client_data,  
 										int * fd, void * in ));
 #endif
  

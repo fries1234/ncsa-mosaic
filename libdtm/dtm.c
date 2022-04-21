@@ -791,10 +791,10 @@ static Inport *  new_in_port( pp, fd )
 }
 
 #ifdef DTM_PROTOTYPES
-void	dtm_handle_in( caddr_t client_data, int * fd, void * id)
+void	dtm_handle_in( void * client_data, int * fd, void * id)
 #else
 void	dtm_handle_in( client_data, fd, id )
-	caddr_t		client_data; 
+	void *		client_data; 
 	int *		fd; 
 	void *		id;
 #endif
@@ -836,7 +836,7 @@ void dtm_set_Xcallback( pp, inp )
 	int	p; for ( p = 0; p < DTMptCount ; p++ ) if ( pp == DTMpt[p] ) break;
 	if ( pp->porttype == INPORTTYPE && pp->XaddInput ) {
 		inp->XinputId = pp->XaddInput( inp->fd, XtInputReadMask, 
-				dtm_handle_in, (caddr_t) p);
+				dtm_handle_in, (void *) p);
 	}
 }
 

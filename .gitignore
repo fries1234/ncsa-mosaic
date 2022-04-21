@@ -1,3 +1,5 @@
 *.o
 *.a
 /src/Mosaic
+.cache
+/build

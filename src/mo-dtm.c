@@ -61,7 +61,7 @@
 
 #include "net.h"
 #include "netdata.h"
-#include "libhtmlw/HTML.h" /* for ImageInfo */
+#include "HTML.h" /* for ImageInfo */
 
 /* Creation of an input port implies done_init and done_register
    as well as done_inport.  Creation of an output port implies 
@@ -89,9 +89,9 @@ mo_status mo_dtm_in (char *path)
 #if 0
       NetRegisterModule
         ("Mosaic", NETCOM,
-         mo_receive_com, (caddr_t) state,
-         NULL, (caddr_t) 0,
-         NULL, (caddr_t) 0);
+         mo_receive_com, (void *) state,
+         NULL, (void *) 0,
+         NULL, (void *) 0);
 #endif
       done_register = 1;
     }

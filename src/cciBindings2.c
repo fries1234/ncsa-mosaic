@@ -64,7 +64,7 @@
 #include "list.h"
 #include "memStuffForPipSqueeks.h"
 
-#include "HTFormat.h"
+#include "libwww2/HTFormat.h"
 
 static Boolean cciAccepting = 0; 
 static int listenPortNumber=0;

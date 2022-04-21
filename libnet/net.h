@@ -100,9 +100,9 @@ typedef struct {
 
 extern	void	NetSetASync PARAMS((int set));
 extern	int	NetRegisterModule
-	PARAMS((char *name, NetType netType, void (*new)(), caddr_t newData,
-		void (*change)(), caddr_t changeData, void (*destroy)(),
-		caddr_t destroyData));
+	PARAMS((char *name, NetType netType, void (*new)(), void * newData,
+		void (*change)(), void * changeData, void (*destroy)(),
+		void * destroyData));
 extern	void	NetDestroyPort PARAMS((NetPort *netPort));
 extern	NetPort *NetCreateInPort PARAMS((char *inPortAddr));
 extern	NetPort *NetCreateOutPort PARAMS((char *outPortAddr));
@@ -172,8 +172,8 @@ extern	int	NetSendCommand
 		void 	(*failCB)()));
 extern	int	NetGetListOfUsers PARAMS((int max, char **users));
 extern	int	NetSendMessage
-	PARAMS((NetPort *netPort, char *message, void (*cb)(), caddr_t cbData,
-		void (*failCB)(), caddr_t failCBData));
+	PARAMS((NetPort *netPort, char *message, void (*cb)(), void * cbData,
+		void (*failCB)(), void * failCBData));
 extern	void NetSetTimeOut
 	PARAMS((int seconds));
 extern	int	NetGetTimeOut PARAMS((void));

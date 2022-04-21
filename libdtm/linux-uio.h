@@ -25,7 +25,7 @@
 #include <sys/types.h>
 
 struct iovec {
-	caddr_t	iov_base;
+	void *	iov_base;
     long int iov_len;
 };
 
@@ -39,11 +39,11 @@ struct uio {
 };
 
 struct msghdr {
-    caddr_t   msg_name;         /* optional address */
+    void *   msg_name;         /* optional address */
     long int  msg_namelen;      /* size of address */
     struct    iovec *msg_iov;   /* scatter/gather array */
     long int  msg_iovlen;       /* # elements in msg_iov */
-    caddr_t   msg_accrights;    /* access rights sent/received */
+    void *   msg_accrights;    /* access rights sent/received */
     long int  msg_accrightslen;
 };
 

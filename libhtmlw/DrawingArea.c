@@ -3,7 +3,7 @@
  *
  *  Sun Sep 12 20:03:49 GMT 1993     Gustaf Neumann                 
  */
-#include "../config.h"
+#include "config.h"
 #ifndef MOTIF
 
 #include <X11/IntrinsicP.h>
