@@ -52,4 +52,26 @@ exe = executable('Mosaic', sources, dependencies: [
     htmlw,
     nut,
     openmotif
-])
+],
+    install: true
+)
+
+install_data(['com.github.fries1234.ncsa-mosaic.desktop'], install_dir: 'share/applications')
+install_data(['com.github.fries1234.ncsa-mosaic.appdata.xml'], install_dir: 'share/metainfo')
+
+install_data(
+    [
+        'com.github.fries1234.ncsa-mosaic-symbolic.svg',
+        'com.github.fries1234.ncsa-mosaic.128px.png',
+        'com.github.fries1234.ncsa-mosaic.64px.png',
+        'com.github.fries1234.ncsa-mosaic.png'
+    ],
+    rename: [
+        'symbolic/com.github.fries1234.ncsa-mosaic-symbolic.svg',
+        '128x128/com.github.fries1234.ncsa-mosaic.png',
+        '64x64/com.github.fries1234.ncsa-mosaic.png',
+        '256x256/com.github.fries1234.ncsa-mosaic.png',
+
+    ],
+    install_dir: 'share/icons/hicolor'
+)
