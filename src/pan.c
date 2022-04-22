@@ -58,6 +58,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "libhtmlw/HTML.h"
+#include <libutils/flatpakCheck.h>
 
 /*for memset*/
 #include <memory.h>
@@ -450,7 +451,7 @@ mo_status mo_setup_pan_list (void)
 
   mo_init_pan ();
 
-  home = getenv ("XDG_DATA_HOME");
+  home = flatpakCheck();
 
   /* This shouldn't happen. */
   if (!home)

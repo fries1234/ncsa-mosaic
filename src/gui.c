@@ -63,6 +63,7 @@
 #include "pixmaps.h"
 #include "libnut/system.h"
 #include "libwww2/HTAABrow.h"
+#include <libutils/flatpakCheck.h>
 
 struct Proxy *noproxy_list = NULL, *proxy_list = NULL, *ReadProxies();
 
@@ -4516,7 +4517,7 @@ splash_goto:
 
     if (get_pref_string(ePERSONAL_EXTENSION_MAP))
     {
-        char *home = getenv ("XDG_DATA_HOME");
+        char *home = flatpakCheck();
       
         if (!home)
             home = "/tmp";
@@ -4535,7 +4536,7 @@ splash_goto:
     global_type_map = get_pref_string(eGLOBAL_TYPE_MAP);
     if (get_pref_string(ePERSONAL_TYPE_MAP))
     {
-        char *home = getenv ("XDG_DATA_HOME");
+        char *home = flatpakCheck();
       
         if (!home)
             home = "/tmp";
@@ -4673,7 +4674,7 @@ splash_goto:
 
   /* Write pid into "~/.mosaicpid". */
   {
-    char *home = getenv ("XDG_DATA_HOME"), *fnam;
+    char *home = flatpakCheck(), *fnam;
     FILE *fp;
     
         if (!home)

@@ -62,6 +62,7 @@
 #include <Xm/TextF.h>
 #include <Xm/ToggleBG.h>
 #include <sys/types.h>
+#include <libutils/flatpakCheck.h>
 
 #include "bitmaps/hotlist.xbm"
 #include "../libnut/system.h"
@@ -1295,7 +1296,7 @@ mo_status mo_dump_hotlist (mo_hotlist *list)
  */
 mo_status mo_setup_default_hotlist (void)
 {
-  char *home = getenv ("XDG_DATA_HOME");
+  char *home = flatpakCheck();
   char *default_filename = get_pref_string(eDEFAULT_HOTLIST_FILE);
   char *hot_filename = get_pref_string(eDEFAULT_HOT_FILE);
   char *filename;

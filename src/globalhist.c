@@ -58,6 +58,7 @@
 #include "libhtmlw/HTML.h"
 #include <time.h>
 #include "../libnut/system.h"
+#include <libutils/flatpakCheck.h>
 
 /*for memset*/
 #include <memory.h>
@@ -506,7 +507,7 @@ mo_status mo_wipe_global_history (mo_window *win)
 static char *cached_global_hist_fname = NULL;
 mo_status mo_setup_global_history (void)
 {
-  char *home = getenv ("XDG_DATA_HOME");
+  char *home = flatpakCheck();
   char *default_filename = get_pref_string(eGLOBAL_HISTORY_FILE);
   char *filename;
   FILE *fp;

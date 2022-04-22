@@ -44,6 +44,7 @@ libwww2_static = static_library(
     'www2',
     sources,
     dependencies: compactstring,
-    include_directories: libwww2_inc
+    include_directories: libwww2_inc,
+    c_args: '-fcommon'
 )
 

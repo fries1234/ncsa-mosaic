@@ -63,6 +63,7 @@
 #include "cciServer.h"
 #include "list.h"
 #include "memStuffForPipSqueeks.h"
+#include <libutils/flatpakCheck.h>
 
 #include "libwww2/HTFormat.h"
 
@@ -455,7 +456,7 @@ int retVal;
 	retVal = MCCIServerInitialize(portNumber);
 	if (retVal) {
 		  /* Write port number to .mosaiccciport */
-    		char *home = getenv ("XDG_DATA_HOME"), *fnam;
+    		char *home = flatpakCheck(), *fnam;
     		FILE *fp;
 		
     		if (!home)

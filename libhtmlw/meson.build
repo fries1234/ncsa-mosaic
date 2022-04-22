@@ -22,6 +22,7 @@ libhtmlw_static = static_library(
     'htmlw',
     sources,
     dependencies: [openmotif, xmu],
-    include_directories: libhtmlw_inc
+    include_directories: libhtmlw_inc,
+    c_args: '-fcommon'
 )
 
