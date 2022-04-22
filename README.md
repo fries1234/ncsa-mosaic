@@ -27,27 +27,36 @@ Building
 
 On Arch Linux:
 * First, install these packages:
-      sudo pacman -S openmotif base-devel libjpeg6-turbo libpng 
-      libxmu libxpm x11proto meson ninja --needed
+```
+sudo pacman -S openmotif base-devel libjpeg6-turbo libpng libxmu libxpm x11proto meson ninja --needed
+```
 
 * Next, build with:
-      meson build
-      ninja -C build
+```
+meson build
+ninja -C build
+```
 
 * Run!
-      build/src/Mosaic
+```
+build/src/Mosaic
+```
 
 On Ubuntu:
 
 * First, install these packages:
-
-      sudo apt-get install build-essential libmotif-dev libjpeg62-dev libpng12-dev x11proto-print-dev libxmu-headers libxpm-dev libxmu-dev meson ninja-build
+```
+sudo apt-get install build-essential libmotif-dev libjpeg62-dev libpng12-dev x11proto-print-dev libxmu-headers libxpm-dev libxmu-dev meson ninja-build
+```
 
 * Next, build with:
 
-      meson build
-      ninja -C build
+```
+meson build
+ninja -C build
+```
 
 * Run!
-
-      build/src/Mosaic
+```
+build/src/Mosaic
+```
