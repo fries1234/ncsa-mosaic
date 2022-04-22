@@ -1,3 +1,11 @@
+Mosaic 2.7b6~flatpak3
+	* Mosaic now detects if it's in a Flatpak environment and stores its files accordingly.
+
+Mosaic 2.7b6~flatpak1
+    * Homepage is now info.cern.ch
+	* Version changed from 2.7b6 to 2.7b6~flatpak1
+    * Uses Flatpak's data directory instead of $HOME.
+
 Mosaic 2.7b6
 
 	* ported to modern Linux
