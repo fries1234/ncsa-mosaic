@@ -3,7 +3,7 @@
 int isFlatpak() {
     FILE *file;
     if ((file = fopen("/.flatpak-info", "r"))) {
-        fclose(file);
+        fclose (file);
         return 1;
     } else {
         return 0;

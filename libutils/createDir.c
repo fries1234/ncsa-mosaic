@@ -2,5 +2,5 @@
 #include <unistd.h>
 
 void createDir(const char* directory) {
-    mkdir(directory, 0777);
+    mkdir (directory, 0777);
 }
