@@ -1,7 +1,7 @@
 project(
     'ncsa-mosaic',
     'c',
-    version: '2.7b6-flatpak3'
+    version: '2.7b6-flatpak4'
 )
 
 cc = meson.get_compiler('c')

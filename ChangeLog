@@ -1,3 +1,6 @@
+Mosaic 2.7b6~flatpak4
+	* The SVG icon is now a square resolution to be compatible with Flathub.
+
 Mosaic 2.7b6~flatpak3
 	* Mosaic now detects if it's in a Flatpak environment and stores its files accordingly.
 

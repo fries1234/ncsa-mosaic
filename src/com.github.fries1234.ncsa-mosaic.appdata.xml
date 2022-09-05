@@ -17,6 +17,11 @@
         </screenshot>
     </screenshots>
     <releases>
+        <release version="2.7b6~flatpak4" date="2022-09-05">
+            <description>
+                <p>The SVG icon is now a square resolution to be compatible with Flathub.</p> 
+            </description>
+        </release>
         <release version="2.7b6~flatpak3" date="2022-04-21">
             <description>
                 <p>Mosaic now detects if it's in a Flatpak environment and stores its files accordingly.</p> 
