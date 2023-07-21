@@ -128,7 +128,7 @@ typedef enum
 
 #ifndef DOCS_DIRECTORY_DEFAULT
 #define DOCS_DIRECTORY_DEFAULT \
-  "http://web.archive.org/web/19970323041027/http://www.ncsa.uiuc.edu/SDG/Software/XMosaic/"
+  "http://web.archive.org/web/19970323041027if_/http://www.ncsa.uiuc.edu/SDG/Software/XMosaic/"
 #endif
 
 #ifndef HOME_PAGE_DEFAULT
@@ -140,7 +140,7 @@ typedef enum
 
 #ifndef WHATSNEW_PAGE_DEFAULT
 #define WHATSNEW_PAGE_DEFAULT \
-  "http://web.archive.org/web/19970405230605/http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/Docs/whats-new.html"
+  "http://web.archive.org/web/19970405230605if_/http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/Docs/whats-new.html"
 #endif /* not WHATSNEW_PAGE_DEFAULT */
 
 #ifndef DEMO_PAGE_DEFAULT
